@@ -3,6 +3,7 @@ import { Button, EditTitle, Editbody } from "../componenets/";
 import Storage from "../services/storage";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form"
+import Container from "react-bootstrap/esm/Container";
 
 export const AddNote = () => {
   const [inputTitle, setInputTitle] = useState("");
@@ -80,33 +81,18 @@ export const AddNote = () => {
   };
 
   return (
-    <div>
+    <Container>
       <div>Add an New Note</div>
-      <div>
         <Form>
-          {/* <div>
-            <label>note Title</label>
-            <input
-              type={"text"}
-              onChange={onTitleChange}
-              defaultValue={setDefaultTitle()}
-            ></input>
-          </div>
-           */}
           <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
           <br />
           <Editbody onChange={onBodyChange} defaultValue={setDefaultBody} />
-          {/* <div>
-            <label>note Body</label>
-            <textarea
-              
-            ></textarea>
-          </div> */}
-        </Form>
+
+        
         {errorMessage}
-      </div>
 
       <Button title="Add Note" onClick={createNote} />
-    </div>
+      </Form>
+    </Container>
   );
 };
