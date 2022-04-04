@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button, Editbody, EditTitle } from "../componenets";
 import Storage from "../services/storage";
+import Container from "react-bootstrap/esm/Container";
+import Form from "react-bootstrap/Form";
 
 export const EditNoteBase = (props) => {
   const [inputNoteNum, setInputNoteNum] = useState("");
@@ -16,11 +18,13 @@ export const EditNoteBase = (props) => {
     navigate(`/editNote/${inputNoteNum}`);
   };
   return (
-    <div>
-      Edit Which Note
-      <input type={"text"} onChange={onInputChange}></input>
-      <Button title={"Go to Note"} onClick={submitInput} />
-    </div>
+    <Container>
+      <Form>
+        <Form.Label>Edit Which Note</Form.Label>
+        <Form.Control type={"text"} onChange={onInputChange}></Form.Control>
+        <Button title={"Go to Note"} onClick={submitInput} />
+      </Form>
+    </Container>
   );
 };
 
@@ -61,41 +65,39 @@ export const EditNoteId = () => {
     return inputTitle;
   };
 
-  const confirmEdit= () =>{
+  const confirmEdit = () => {
     console.log("confirm hit");
     console.log("new title", inputTitle);
     console.log("new body", inputBody);
     // let Notes = Storage.getItem("Notes");
     let Notes = Array.from(Storage.getItem("Notes"));
-        console.log("Notes pre change", Notes);
+    console.log("Notes pre change", Notes);
 
-    let Ids = Notes.map((element) => 
-          element.Id
-    );
-    let index = Ids.indexOf( parseInt(Id))
-    
-
+    let Ids = Notes.map((element) => element.Id);
+    let index = Ids.indexOf(parseInt(Id));
 
     console.log("Id", Id);
-    console.log("IDs",Ids);
+    console.log("IDs", Ids);
     console.log("index", index);
 
-    Notes[index].Title = inputTitle
-    Notes[index].Body = inputBody
-
+    Notes[index].Title = inputTitle;
+    Notes[index].Body = inputBody;
 
     console.log("Notes post change", Notes);
-    Storage.setItem("Notes", Notes)
-    navigate(-1)
-  }
+    Storage.setItem("Notes", Notes);
+    navigate(-1);
+  };
 
   // console.log(props);
   // if (props.Id == null) return <div>pling long</div>;
-  return <div>
-    
-    Editing Note {Id}
-    <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
-    <Editbody onChange={onBodyChange} defaultValue={setDefaultBody}/>
-    <Button title="Confirm Edit" onClick={confirmEdit}/>
-  </div>
+  return (
+    <Container>
+      Editing Note {Id}
+      <Form>
+        <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
+        <Editbody onChange={onBodyChange} defaultValue={setDefaultBody} />
+        <Button title="Confirm Edit" onClick={confirmEdit} />
+      </Form>
+    </Container>
+  );
 };
