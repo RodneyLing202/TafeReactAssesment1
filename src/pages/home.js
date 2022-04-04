@@ -29,6 +29,16 @@ export const Home = () => {
 //   let Notes = storage.getItem("Notes")
 //   console.log(Notes);
   let keyNum = 0;
+
+  if (Notes.length === 0) {
+    return(
+      <div>
+        You have no Notes stored add a note using a link above
+      </div>
+    )
+  }
+
+
   return (
     <div>
       Home
