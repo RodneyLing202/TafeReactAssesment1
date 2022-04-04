@@ -47,7 +47,7 @@ export const AddNote = () => {
     let sesTitle = Storage.getSessionItem("title");
     let sesBody = Storage.getSessionItem("body");
     // console.log("SessTitle", sesTitle, "sesBody", sesBody);
-    if (sesTitle == "") {
+    if (sesTitle == "" || sesTitle == null ) {
       sesTitle = `Note Number ${NoteId}`;
     }
     if (sesBody == "") {
