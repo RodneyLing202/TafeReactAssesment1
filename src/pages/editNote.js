@@ -9,6 +9,8 @@ export const EditNoteBase = (props) => {
   const [inputNoteNum, setInputNoteNum] = useState("");
   const navigate = useNavigate();
 
+  const { errorMessage } = props;
+
   const onInputChange = (event) => {
     const input = event.target.value;
     setInputNoteNum(input);
@@ -17,8 +19,14 @@ export const EditNoteBase = (props) => {
     // console.log("input note num", inputNoteNum);
     navigate(`/editNote/${inputNoteNum}`);
   };
+  const DisplayErrorMessage = () => {
+    if (errorMessage != null) return errorMessage;
+    else return "";
+  };
+
   return (
     <Container>
+      {DisplayErrorMessage()}
       <Form>
         <Form.Label>Edit Which Note</Form.Label>
         <Form.Control type={"text"} onChange={onInputChange}></Form.Control>
@@ -31,6 +39,7 @@ export const EditNoteBase = (props) => {
 export const EditNoteId = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputBody, setInputBody] = useState("");
+  const [ErrorState, setError] = useState(false);
   const navigate = useNavigate();
   let { Id } = useParams();
   console.log("id:", Id);
@@ -38,9 +47,14 @@ export const EditNoteId = () => {
     let Notes = Storage.getItem("Notes");
     let tempNote = Notes.filter((element) => element.Id == Id);
     // setNote(tempNote[0]);
-    setInputTitle(tempNote[0].Title);
-    setInputBody(tempNote[0].Body);
-  }, []);
+    console.log(tempNote);
+    if (tempNote.length === 1) {
+      setInputTitle(tempNote[0].Title);
+      setInputBody(tempNote[0].Body);
+    } else {
+      setError(true);
+    }
+  });
 
   const onTitleChange = (event) => {
     const input = event.target.value;
@@ -90,14 +104,27 @@ export const EditNoteId = () => {
 
   // console.log(props);
   // if (props.Id == null) return <div>pling long</div>;
-  return (
-    <Container>
-      Editing Note {Id}
-      <Form>
-        <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
-        <Editbody onChange={onBodyChange} defaultValue={setDefaultBody} />
-        <Button title="Confirm Edit" onClick={confirmEdit} />
-      </Form>
-    </Container>
-  );
+  if (ErrorState) {
+    return (
+      <Container>
+        <div>there was a problem finding an Note with that Id</div>
+        <Button
+          title={"go back to find a note"}
+          onClick={() => navigate("/editNote")}
+        />
+      </Container>
+    );
+
+    // )
+  } else
+    return (
+      <Container>
+        Editing Note {Id}
+        <Form>
+          <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
+          <Editbody onChange={onBodyChange} defaultValue={setDefaultBody} />
+          <Button title="Confirm Edit" onClick={confirmEdit} />
+        </Form>
+      </Container>
+    );
 };
