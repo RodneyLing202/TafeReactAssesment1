@@ -6,12 +6,13 @@ import { useNavigate } from "react-router-dom";
 export const AddNote = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputBody, setInputBody] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     setInputTitle(Storage.getSessionItem("title"));
     setInputBody(Storage.getSessionItem("body"));
-  }, []);
+  });
 
   const onTitleChange = (event) => {
     const input = event.target.value;
@@ -44,6 +45,13 @@ export const AddNote = () => {
     let sesTitle = Storage.getSessionItem("title");
     let sesBody = Storage.getSessionItem("body");
     // console.log("SessTitle", sesTitle, "sesBody", sesBody);
+    if (sesTitle == "") {
+      sesTitle = `Note Number ${NoteId}`
+    }
+    if (sesBody == "") {
+      setErrorMessage("please enter a body to the note")
+      return
+    }
     const new_note = { Id: NoteId, Title: sesTitle, Body: sesBody };
     const Notes_copy = Array.from(Storage.getItem("Notes"));
 
@@ -93,6 +101,7 @@ export const AddNote = () => {
             ></textarea>
           </div>
         </form>
+        {errorMessage}
       </div>
 
       <Button title="Add Note" onClick={createNote} />
