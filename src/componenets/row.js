@@ -7,11 +7,12 @@ import { Button } from "./button";
 export const Row = ({ props }) => {
   return (
     <Draggable>
-      <Card style={{ width: "18rem", margin: "auto", margin:"3px" }}>
-        <Card.Body>
-          <Card.Title>
+      <Card style={{ width: "18rem", margin: "auto", marginTop:"3px"}}>
+        
+          <Card.Header>
             <NoteTitle title={props.Title} />
-          </Card.Title>
+          </Card.Header>
+          <Card.Body>
           <Card.Text>
             <NoteBody body={props.Body} />
             <Card.Link>
