@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, EditTitle, Editbody} from "../componenets/";
+import { Button, EditTitle, Editbody } from "../componenets/";
 import Storage from "../services/storage";
 import { useNavigate } from "react-router-dom";
 
@@ -46,11 +46,11 @@ export const AddNote = () => {
     let sesBody = Storage.getSessionItem("body");
     // console.log("SessTitle", sesTitle, "sesBody", sesBody);
     if (sesTitle == "") {
-      sesTitle = `Note Number ${NoteId}`
+      sesTitle = `Note Number ${NoteId}`;
     }
     if (sesBody == "") {
-      setErrorMessage("please enter a body to the note")
-      return
+      setErrorMessage("please enter a body to the note");
+      return;
     }
     const new_note = { Id: NoteId, Title: sesTitle, Body: sesBody };
     const Notes_copy = Array.from(Storage.getItem("Notes"));
@@ -59,14 +59,14 @@ export const AddNote = () => {
     Notes_copy.push(new_note);
     Storage.setItem("Notes", Notes_copy);
 
-    clearSession()
+    clearSession();
     navigate("/editNote");
   };
 
-    const clearSession = () =>{
-        Storage.setSessionItem("title","")
-        Storage.setSessionItem("body","")
-    }
+  const clearSession = () => {
+    Storage.setSessionItem("title", "");
+    Storage.setSessionItem("body", "");
+  };
 
   const setDefaultBody = () => {
     console.log(inputBody);
@@ -92,14 +92,14 @@ export const AddNote = () => {
             ></input>
           </div>
            */}
-          <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle}/>
-          <div>
+          <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
+          <Editbody onChange={onBodyChange} defaultValue={setDefaultBody} />
+          {/* <div>
             <label>note Body</label>
             <textarea
-              onChange={onBodyChange}
-              defaultValue={setDefaultBody()}
+              
             ></textarea>
-          </div>
+          </div> */}
         </form>
         {errorMessage}
       </div>
