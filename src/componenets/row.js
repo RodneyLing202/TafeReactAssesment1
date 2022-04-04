@@ -8,7 +8,7 @@ import Badge from "react-bootstrap/Badge";
 import { Button } from "./button";
 export const Row = ({ props }) => {
   return (
-    <Draggable>
+    // <Draggable>
       <Accordion flush>
         <Accordion.Header>
           <Badge bg="primary">
@@ -16,11 +16,12 @@ export const Row = ({ props }) => {
           </Badge>
         </Accordion.Header>
         <Accordion.Body>
-          <NoteBody body={props.Body} />
-
-          <Card style={{ width: "18rem", margin: "auto", marginTop: "3px" }}>
+{/* width: "18rem", */}
+          <Card style={{  margin: "auto", marginTop: "3px" }}>
             <Card.Body>
               <Card.Text>
+                          <NoteBody body={props.Body} />
+
                 <Card.Link>
                   <Link to={`editNote/${props.Id}`}>
                     <Button title="edit" buttonType="primary"></Button>
@@ -36,6 +37,6 @@ export const Row = ({ props }) => {
           </Card>
         </Accordion.Body>
       </Accordion>
-    </Draggable>
+    // </Draggable>
   );
 };
