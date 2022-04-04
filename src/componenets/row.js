@@ -5,23 +5,25 @@ import Draggable from "react-draggable";
 import Card from "react-bootstrap/Card";
 import { Button } from "./button";
 export const Row = ({ props }) => {
-  //   console.log(props);
-  //
   return (
     <Draggable>
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "18rem", margin: "auto", margin:"3px" }}>
         <Card.Body>
           <Card.Title>
             <NoteTitle title={props.Title} />
           </Card.Title>
           <Card.Text>
             <NoteBody body={props.Body} />
-            <Link to={`editNote/${props.Id}`}>
-              <Button title="edit" buttonType="primary"></Button>
-            </Link>
-            <Link to={`deleteNote/${props.Id}`}>
-              <Button title="Delete" buttonType="secondary"></Button>
-            </Link>
+            <Card.Link>
+              <Link to={`editNote/${props.Id}`}>
+                <Button title="edit" buttonType="primary"></Button>
+              </Link>
+            </Card.Link>
+            <Card.Link>
+              <Link to={`deleteNote/${props.Id}`}>
+                <Button title="Delete" buttonType="secondary"></Button>
+              </Link>
+            </Card.Link>
           </Card.Text>
         </Card.Body>
       </Card>
