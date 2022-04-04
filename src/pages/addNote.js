@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, EditTitle, Editbody } from "../componenets/";
 import Storage from "../services/storage";
 import { useNavigate } from "react-router-dom";
+import Form from "react-bootstrap/Form"
 
 export const AddNote = () => {
   const [inputTitle, setInputTitle] = useState("");
@@ -82,7 +83,7 @@ export const AddNote = () => {
     <div>
       <div>Add an New Note</div>
       <div>
-        <form>
+        <Form>
           {/* <div>
             <label>note Title</label>
             <input
@@ -93,6 +94,7 @@ export const AddNote = () => {
           </div>
            */}
           <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
+          <br />
           <Editbody onChange={onBodyChange} defaultValue={setDefaultBody} />
           {/* <div>
             <label>note Body</label>
@@ -100,7 +102,7 @@ export const AddNote = () => {
               
             ></textarea>
           </div> */}
-        </form>
+        </Form>
         {errorMessage}
       </div>
 
