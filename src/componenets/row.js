@@ -9,39 +9,36 @@ import { Button } from "./button";
 import Container from "react-bootstrap/esm/Container";
 export const Row = ({ props }) => {
   return (
-    // <Draggable>
-    <Card >
+    <Draggable>
+      <Card>
+        <Accordion>
+          <Accordion.Header>
+            <Badge bg="primary">
+              <NoteTitle title={props.Title} />
+            </Badge>
+          </Accordion.Header>
+          <Accordion.Body>
+            <Card style={{ margin: "auto", marginTop: "3px" }}>
+              <Card.Body>
+                <Card.Text>
+                  <NoteBody body={props.Body} />
 
-
-      <Accordion>
-        <Accordion.Header>
-          <Badge bg="primary">
-            <NoteTitle title={props.Title} />
-          </Badge>
-        </Accordion.Header>
-        <Accordion.Body>
-{/* width: "18rem", */}
-          <Card style={{  margin: "auto", marginTop: "3px" }}>
-            <Card.Body>
-              <Card.Text>
-                          <NoteBody body={props.Body} />
-
-                <Card.Link>
-                  <Link to={`editNote/${props.Id}`}>
-                    <Button title="edit" buttonType="primary"></Button>
-                  </Link>
-                </Card.Link>
-                <Card.Link>
-                  <Link to={`deleteNote/${props.Id}`}>
-                    <Button title="Delete" buttonType="secondary"></Button>
-                  </Link>
-                </Card.Link>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Accordion.Body>
-      </Accordion>    
+                  <Card.Link>
+                    <Link to={`editNote/${props.Id}`}>
+                      <Button title="edit" buttonType="primary"></Button>
+                    </Link>
+                  </Card.Link>
+                  <Card.Link>
+                    <Link to={`deleteNote/${props.Id}`}>
+                      <Button title="Delete" buttonType="secondary"></Button>
+                    </Link>
+                  </Card.Link>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Accordion.Body>
+        </Accordion>
       </Card>
-    // </Draggable>
+    </Draggable>
   );
 };
