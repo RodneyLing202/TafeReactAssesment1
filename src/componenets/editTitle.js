@@ -1,18 +1,18 @@
-
+import Form from "react-bootstrap/Form"
 
 
 
 export const EditTitle = (props) => {
 
     return (
-        <div>
-            <label>note Title</label>
-            <input
-                type={"text"}
+        <Form.Group>
+            <Form.Label>note Title</Form.Label>
+            <Form.Control
+                type="text"
                 onChange={props.onChange}
                 defaultValue={props.defaultValue()}
-            ></input>
-        </div>
+            ></Form.Control>
+        </Form.Group>
     )
 
 

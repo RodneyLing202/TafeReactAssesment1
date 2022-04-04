@@ -1,16 +1,18 @@
+import Form from "react-bootstrap/Form"
 
 
 
 export const Editbody = (props) => {
 
     return (
-        <div> 
-            <label>note body</label>
-            <textarea
+        <Form.Group>
+            <Form.Label>note Body</Form.Label>
+            <Form.Control
+            type = "textarea"
                 onChange={props.onChange}
                 defaultValue={props.defaultValue()}
-            ></textarea>
-        </div>
+            ></Form.Control>
+        </Form.Group>
     )
 
 
