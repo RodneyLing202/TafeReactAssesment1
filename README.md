@@ -1,5 +1,5 @@
 # Using
-npm pacgaes used: Draggable
+npm pacgaes used: Draggable, React-Strap
 
 storage.js is copied from class
 
