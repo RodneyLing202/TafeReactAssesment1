@@ -6,10 +6,14 @@ import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
 import Badge from "react-bootstrap/Badge";
 import { Button } from "./button";
+import Container from "react-bootstrap/esm/Container";
 export const Row = ({ props }) => {
   return (
     // <Draggable>
-      <Accordion flush>
+    <Card >
+
+
+      <Accordion>
         <Accordion.Header>
           <Badge bg="primary">
             <NoteTitle title={props.Title} />
@@ -36,7 +40,8 @@ export const Row = ({ props }) => {
             </Card.Body>
           </Card>
         </Accordion.Body>
-      </Accordion>
+      </Accordion>    
+      </Card>
     // </Draggable>
   );
 };
