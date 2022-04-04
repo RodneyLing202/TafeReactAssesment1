@@ -31,7 +31,7 @@ export const Header = () => {
 
           <Nav.Link>
             <NavLink style={linkStyle} to="/editNote">
-              edit an existing Note
+              Edit An Existing Note
             </NavLink>
           </Nav.Link>
 
