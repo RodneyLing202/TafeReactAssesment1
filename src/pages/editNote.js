@@ -27,7 +27,7 @@ export const EditNoteBase = (props) => {
     <Container>
       {DisplayErrorMessage()}
       <Form>
-        <Form.Label>Edit Which Note</Form.Label>
+        <Form.Label><h1>Edit Which Note</h1></Form.Label>
         <Form.Control type={"text"} onChange={onInputChange}></Form.Control>
         <br />
 

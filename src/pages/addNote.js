@@ -81,7 +81,7 @@ export const AddNote = () => {
 
   return (
     <Container>
-      <div>Add an New Note</div>
+      <h1>Add an New Note</h1>
       <Form>
         <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
         <br />

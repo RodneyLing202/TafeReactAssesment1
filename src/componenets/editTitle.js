@@ -6,7 +6,7 @@ export const EditTitle = (props) => {
 
     return (
         <Form.Group>
-            <Form.Label>note Title</Form.Label>
+            <Form.Label><h2>note Title</h2></Form.Label>
             <Form.Control
                 type="text"
                 onChange={props.onChange}
