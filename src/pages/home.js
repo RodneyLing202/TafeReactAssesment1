@@ -24,24 +24,19 @@ export const Home = () => {
   useEffect(() => {
     setNotes(storage.getItem("Notes"));
   }, []);
-//   storage.setItem("Notes", postInfo)
+  //   storage.setItem("Notes", postInfo)
 
-//   let Notes = storage.getItem("Notes")
-//   console.log(Notes);
+  //   let Notes = storage.getItem("Notes")
+  //   console.log(Notes);
   let keyNum = 0;
 
   if (Notes.length === 0) {
-    return(
-      <div>
-        You have no Notes stored add a note using a link above
-      </div>
-    )
+    return <div>You have no Notes stored add a note using a link above</div>;
   }
 
-
   return (
-    <Container style={{width:"80%"}}>
-      Home
+    <Container style={{ width: "80%" }}>
+      <h1>Home Page</h1>
       {Notes.map((note) => (
         <Row key={keyNum++} props={note} />
       ))}
