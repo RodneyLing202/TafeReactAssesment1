@@ -1,7 +1,3 @@
-
-
-
-export const NoteTitle = ( props ) => {
-    return <div>{props.title}</div>;
-  };
-  
+export const NoteTitle = (props) => {
+  return <div>{props.title}</div>;
+};

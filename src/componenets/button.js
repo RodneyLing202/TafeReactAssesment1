@@ -11,7 +11,6 @@ export function Button(props) {
     buttonType = props.buttonType
 
   const { title, onClick } = props; // object destructuring
-  // return <button onClick={onClick}>{title}</button>;
   return(
     <BootstrapButton variant={buttonType} onClick={onClick}>{title}</BootstrapButton>
   )

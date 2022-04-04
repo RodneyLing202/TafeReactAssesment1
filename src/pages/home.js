@@ -24,10 +24,7 @@ export const Home = () => {
   useEffect(() => {
     setNotes(storage.getItem("Notes"));
   }, []);
-  //   storage.setItem("Notes", postInfo)
 
-  //   let Notes = storage.getItem("Notes")
-  //   console.log(Notes);
   let keyNum = 0;
 
   if (Notes.length === 0) {

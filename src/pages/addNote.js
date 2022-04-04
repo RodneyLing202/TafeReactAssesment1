@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, EditTitle, Editbody } from "../componenets/";
 import Storage from "../services/storage";
 import { useNavigate } from "react-router-dom";
-import Form from "react-bootstrap/Form"
+import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 
 export const AddNote = () => {
@@ -46,8 +46,7 @@ export const AddNote = () => {
     let NoteId = GenerateId();
     let sesTitle = Storage.getSessionItem("title");
     let sesBody = Storage.getSessionItem("body");
-    // console.log("SessTitle", sesTitle, "sesBody", sesBody);
-    if (sesTitle == "" || sesTitle == null ) {
+    if (sesTitle == "" || sesTitle == null) {
       sesTitle = `Note Number ${NoteId}`;
     }
     if (sesBody == "") {
@@ -83,16 +82,15 @@ export const AddNote = () => {
   return (
     <Container>
       <div>Add an New Note</div>
-        <Form>
-          <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
-          <br />
-          <Editbody onChange={onBodyChange} defaultValue={setDefaultBody} />
+      <Form>
+        <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
+        <br />
+        <Editbody onChange={onBodyChange} defaultValue={setDefaultBody} />
 
-        
         {errorMessage}
         <br />
 
-      <Button title="Add Note" onClick={createNote} />
+        <Button title="Add Note" onClick={createNote} />
       </Form>
     </Container>
   );

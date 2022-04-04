@@ -16,7 +16,6 @@ export const EditNoteBase = (props) => {
     setInputNoteNum(input);
   };
   const submitInput = () => {
-    // console.log("input note num", inputNoteNum);
     navigate(`/editNote/${inputNoteNum}`);
   };
   const DisplayErrorMessage = () => {
@@ -25,12 +24,12 @@ export const EditNoteBase = (props) => {
   };
 
   return (
-    <Container >
+    <Container>
       {DisplayErrorMessage()}
       <Form>
         <Form.Label>Edit Which Note</Form.Label>
         <Form.Control type={"text"} onChange={onInputChange}></Form.Control>
-                <br />
+        <br />
 
         <Button title={"Go to Note"} onClick={submitInput} />
       </Form>
@@ -48,7 +47,6 @@ export const EditNoteId = () => {
   useEffect(() => {
     let Notes = Storage.getItem("Notes");
     let tempNote = Notes.filter((element) => element.Id == Id);
-    // setNote(tempNote[0]);
     console.log(tempNote);
     if (tempNote.length === 1) {
       setInputTitle(tempNote[0].Title);
@@ -60,24 +58,20 @@ export const EditNoteId = () => {
 
   const onTitleChange = (event) => {
     const input = event.target.value;
-    // Storage.setSessionItem("title", input);
     setInputTitle(input);
   };
 
   const onBodyChange = (event) => {
     const input = event.target.value;
-    // Storage.setSessionItem("body", input);
 
     setInputBody(input);
   };
 
   const setDefaultBody = () => {
-    // console.log(inputBody);
     return inputBody;
   };
 
   const setDefaultTitle = () => {
-    // console.log(inputTitle);
     return inputTitle;
   };
 
@@ -85,7 +79,6 @@ export const EditNoteId = () => {
     console.log("confirm hit");
     console.log("new title", inputTitle);
     console.log("new body", inputBody);
-    // let Notes = Storage.getItem("Notes");
     let Notes = Array.from(Storage.getItem("Notes"));
     console.log("Notes pre change", Notes);
 
@@ -104,8 +97,6 @@ export const EditNoteId = () => {
     navigate(-1);
   };
 
-  // console.log(props);
-  // if (props.Id == null) return <div>pling long</div>;
   if (ErrorState) {
     return (
       <Container>
@@ -116,8 +107,6 @@ export const EditNoteId = () => {
         />
       </Container>
     );
-
-    // )
   } else
     return (
       <Container>

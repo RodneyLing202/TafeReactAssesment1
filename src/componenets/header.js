@@ -42,11 +42,6 @@ export const Header = () => {
           </Nav.Link>
         </Nav>
 
-        {/* <Link to="/addNote">Add A New Note</Link>
-                <span> </span>
-                <Link to="/editNote">edit an existing Note</Link>
-                <span> </span>
-                <Link to="/clearAll">Clear All Notes</Link> */}
       </Container>
     </Navbar>
   );

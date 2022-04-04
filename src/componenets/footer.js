@@ -9,18 +9,5 @@ export const Footer = () => {
     width: "100%",
   };
 
-  return (
-    // <div>
-    //   <div style={phantom}></div>
-    //   <Container style={style}>Rodney Ling</Container>
-    // </div>
-    // <Footer>
-        <Container>
-    Rodney Ling
-    </Container>
-    // </Footer>
-//     <footer class="border-top footer text-muted">
-    
-// </footer>
-  );
+  return <Container>Rodney Ling</Container>;
 };

@@ -1,5 +1,12 @@
 import { Route, Routes, useParams } from "react-router-dom";
-import { Home, AddNote, EditNoteBase, EditNoteId, DeleteNote, ClearAll } from "../pages";
+import {
+  Home,
+  AddNote,
+  EditNoteBase,
+  EditNoteId,
+  DeleteNote,
+  ClearAll,
+} from "../pages";
 
 export const Router = () => {
   return (
@@ -15,7 +22,7 @@ export const Router = () => {
         <Route index element={<div> Note not found</div>} />
         <Route path=":Id" element={<DeleteNote />} />
       </Route>
-      <Route path="clearAll" element = {<ClearAll/>}/>
+      <Route path="clearAll" element={<ClearAll />} />
       <Route path="*" element={<div> 404 not found</div>} />
     </Routes>
   );
