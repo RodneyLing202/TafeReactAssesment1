@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Row } from "../componenets/row";
 import storage from "../services/storage";
-
+import Container from "react-bootstrap/esm/Container";
 export const Home = () => {
   let postInfo = [
     {
@@ -40,11 +40,11 @@ export const Home = () => {
 
 
   return (
-    <div>
+    <Container style={{width:"80%"}}>
       Home
       {Notes.map((note) => (
         <Row key={keyNum++} props={note} />
       ))}
-    </div>
+    </Container>
   );
 };
