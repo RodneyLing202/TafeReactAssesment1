@@ -25,11 +25,13 @@ export const EditNoteBase = (props) => {
   };
 
   return (
-    <Container>
+    <Container >
       {DisplayErrorMessage()}
       <Form>
         <Form.Label>Edit Which Note</Form.Label>
         <Form.Control type={"text"} onChange={onInputChange}></Form.Control>
+                <br />
+
         <Button title={"Go to Note"} onClick={submitInput} />
       </Form>
     </Container>
@@ -123,6 +125,8 @@ export const EditNoteId = () => {
         <Form>
           <EditTitle onChange={onTitleChange} defaultValue={setDefaultTitle} />
           <Editbody onChange={onBodyChange} defaultValue={setDefaultBody} />
+          <br />
+
           <Button title="Confirm Edit" onClick={confirmEdit} />
         </Form>
       </Container>

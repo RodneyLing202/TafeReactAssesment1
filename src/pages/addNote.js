@@ -90,6 +90,7 @@ export const AddNote = () => {
 
         
         {errorMessage}
+        <br />
 
       <Button title="Add Note" onClick={createNote} />
       </Form>
